@@ -23,7 +23,7 @@ A primeira linha da saída contém um inteiro F, que deve ser igual ao número d
 ## Por exemplo:
 ![image](https://github.com/lucascassio/alg1_ufmg/assets/99884897/386ca3df-efb9-40ad-85af-2708a69784a9)
 
-## Como usar
+# Como usar
 Para executar basta dar o comando `make` na pasta raiz do projeto. Depois disso basta executar o binário com `./bin/tp1.out`
 
 
