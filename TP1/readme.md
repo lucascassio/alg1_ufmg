@@ -20,6 +20,11 @@ Cada caso de teste é composto por várias linhas. A primeira linha contém dois
 ## Saída:
 A primeira linha da saída contém um inteiro F, que deve ser igual ao número de faces deG. As próximas F linhas devem corresponder às F faces de G; cada linha começa com um inteiro Si , que representao tamanho da i-ésima face de G; em seguida, existem si inteiros, representando o circuito que corresponde à bordada face. A ordem das faces não é importante, mas vértices consecutivos na borda da face devem ser adjacentes.
 
+
+## Como usar
+
+Para executar basta dar o comando `make` na pasta raiz do projeto. Depois disso basta executar o binário com `./bin/tp1.out`
+
 ## Por exemplo:
 
 ![image](https://github.com/lucascassio/alg1_ufmg/assets/99884897/386ca3df-efb9-40ad-85af-2708a69784a9)
