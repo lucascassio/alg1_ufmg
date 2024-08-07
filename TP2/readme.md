@@ -21,12 +21,12 @@ Dado um grafo planar com vértices e arestas, é necessário calcular:
 
 Cada caso de teste é composto por várias linhas:
 
-1. A primeira linha contém dois inteiros, `N` e `M`, que representam, respectivamente, o número de vértices e arestas do grafo de entrada `G`. É garantido que `G` é conexo, que `1 ≤ N, M ≤ 10^5`.
+1. A primeira linha contém dois inteiros, `N` e `M`, que representam, respectivamente, o número de vértices e arestas do grafo de entrada `G`. É garantido que `G` é conexo, que `1 ≤ N, M ≤ 10^6`.
 2. Para cada aresta, são fornecidos os seguintes valores:
-    - `u`, `v`: vértices que a aresta conecta.
-    - `a`: ano de construção da aresta.
-    - `l`: tempo de travessia da aresta.
-    - `c`: custo de construção da aresta.
+    - `u`, `v`: vértices que a aresta conecta(`u != v`).
+    - `a`: ano de construção da aresta(`1 ≤ a ≤ 10ˆ8`).
+    - `l`: tempo de travessia da aresta(`1 ≤ a ≤ 10ˆ5`).
+    - `c`: custo de construção da aresta(`1 ≤ a ≤ 10ˆ5`).
 
 ### Saída
 
