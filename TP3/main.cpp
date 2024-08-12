@@ -1,11 +1,9 @@
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
 const int64_t INF = 0x3f3f3f3f;
 const int64_t LINF = 0x3f3f3f3f3f3f3f3fll;
-
-vector<int64_t> decisao;
 
 struct secao {
   int64_t bonificacao;
@@ -17,28 +15,35 @@ struct manobra {
   int64_t tManobra;
 };
 
+struct sequencia {
+  int64_t pontuacao;
+  int64_t seq;
+  
+  sequencia(int64_t p = -LINF, int64_t s = 0) : pontuacao(p), seq(s) {}
+};
+
 vector<secao> secoes;
 vector<manobra> manobras;
 
-int64_t countSetBits(int64_t n) {
+int64_t contaBits(int64_t n) {
     int64_t count = 0;
-    while(n) {
-        count += n & 1;
-        n >>= 1;
+    while (n) {
+        n &= (n - 1);
+        count++;
     }
     return count;
 }
 
-void combinacoes(vector<vector<int64_t>>& tabela, int64_t N, int64_t K) {
-  for(int64_t i = 0; i < (1 << K); i++) {
-    tabela[i][0] = 0;
-    for(int64_t mask = 1; mask < (1 << K); mask++) {
-      for(int64_t k = 0; k < K; k++) {
-        if(mask & (1 << k)) {
-          if((i & (1 << k)) && (mask & (1 << k))) {
-            tabela[i][mask] += (manobras[k].pontuacao / 2) * countSetBits(mask);
+void combinacoes(vector<vector<int64_t>>& tabela, int64_t K) {
+  for (int64_t i = 0; i < (1 << K); i++) {
+    for (int64_t mask = 0; mask < (1 << K); mask++) {
+      tabela[i][mask] = 0;
+      for (int64_t k = 0; k < K; k++) {
+        if (mask & (1 << k)) {
+          if ((i & (1 << k)) && (mask & (1 << k))) {
+            tabela[i][mask] += (manobras[k].pontuacao / 2) * contaBits(mask);
           } else if ((i & (1 << k)) != (mask & (1 << k))) {
-            tabela[i][mask] += manobras[k].pontuacao * countSetBits(mask);
+            tabela[i][mask] += manobras[k].pontuacao * contaBits(mask);
           }      
         }
       }
@@ -48,78 +53,85 @@ void combinacoes(vector<vector<int64_t>>& tabela, int64_t N, int64_t K) {
 
 bool tempo(int64_t mask, int64_t secao, int64_t K) {
   int64_t tempoSecao = secoes[secao].tTravessia;
-  bool possivel = true;
-  for(int64_t k = 0; k < K; k++) {
-    if(mask & (1 << k)) {
-      if(manobras[k].tManobra <= tempoSecao) {
+  for (int64_t k = 0; k < K; k++) {
+    if (mask & (1 << k)) {
+      if (manobras[k].tManobra <= tempoSecao) {
         tempoSecao -= manobras[k].tManobra;
-      } else if(manobras[k].tManobra > tempoSecao) {
-        possivel = false;
-        break;
+      } else {
+        return false;
       }
     }
   }
-
-  return possivel;
+  return true;
 }
 
-int64_t dp(vector<vector<int64_t>>& tabela, vector<vector<int64_t>>& memo, vector<int64_t>& decisao, int64_t N, int64_t K, int64_t secao, int64_t manobra) {
-    if(secao == N) {
+int64_t dp(vector<vector<int64_t>>& tabela, vector<vector<sequencia>>& memo, int64_t N, int64_t K, int64_t secao, int64_t manobra) {
+    if (secao == N) {
         return 0;
     }
 
-    if(memo[secao][manobra] != -LINF) {
-        return memo[secao][manobra];
+    if (memo[secao][manobra].pontuacao != -LINF) {
+        return memo[secao][manobra].pontuacao;
     }
 
     int64_t maxValue = 0;
-    int64_t mask = 0;
-    for(int64_t i = 0; i < (1 << K); i++) {
-        if(tempo(i, secao, K)) {
+    for (int64_t i = 0; i < (1 << K); i++) {
+        if (tempo(i, secao, K)) {
             int64_t atualValue = tabela[manobra][i] * secoes[secao].bonificacao;
-            atualValue += dp(tabela, memo, decisao, N, K, secao + 1, i);
-            if(atualValue > maxValue) {
-              maxValue = atualValue;
-              mask = i;
+            atualValue += dp(tabela, memo, N, K, secao + 1, i);
+            if (atualValue > maxValue) {
+                maxValue = atualValue;
+                memo[secao][manobra].seq = i;
             }
         }
     }
-    memo[secao][manobra] = maxValue;
-    decisao[secao] = mask;
+    memo[secao][manobra].pontuacao = maxValue;
+
     return maxValue;
 }
 
-int main() {
-  int64_t N, K; cin >> N >> K;
-  manobras.resize(K);
-  secoes.resize(N);
-  decisao.resize(N);
-  
-  for(int64_t i = 0; i < N; i++) {
-    cin >> secoes[i].bonificacao;
-    cin >> secoes[i].tTravessia;
+void seqManobras(vector<vector<sequencia>>& memo, int64_t N, int64_t K, int64_t secao, int64_t manobra) {
+  if(secao == N) {
+    return;
   }
 
-  for(int64_t j = 0; j < K; j++) {
-    cin >> manobras[j].pontuacao;
-    cin >> manobras[j].tManobra;
+  int64_t mask = memo[secao][manobra].seq;
+  cout << contaBits(mask) << " ";
+  
+  for(int k = 0; k < K; k++) {
+    if(mask & (1 << k)) {
+      cout << k + 1 << " ";
+    }
+  } 
+  cout << endl;
+
+  seqManobras(memo, N, K, secao + 1, mask);
+}
+
+int main() {
+  int64_t N, K;
+  cin >> N >> K;
+
+  manobras.resize(K);
+  secoes.resize(N);
+
+  for (int64_t i = 0; i < N; i++) {
+    cin >> secoes[i].bonificacao >> secoes[i].tTravessia;
+  }
+
+  for (int64_t j = 0; j < K; j++) {
+    cin >> manobras[j].pontuacao >> manobras[j].tManobra;
   }
 
   int64_t dim = pow(2, K);
 
   vector<vector<int64_t>> tabela(dim, vector<int64_t>(dim, 0));
-  vector<vector<int64_t>> memo(N, vector<int64_t>(1 << K, -LINF));
+  vector<vector<sequencia>> memo(N, vector<sequencia>(dim));
 
-  combinacoes(tabela, N, K);
-  cout << dp(tabela, memo, decisao, N, K, 0, 0) << endl;
-  for(int64_t i = 0; i < N; i++) {
-    cout << countSetBits(decisao[i]) << " ";
-    for(int64_t k = 0; k < K; k++) {
-      if(decisao[i] & (1 << k)) {
-        cout << k + 1 << " ";
-      }
-    }
-    cout << endl;
-  }
+  combinacoes(tabela, K);
+  cout << dp(tabela, memo, N, K, 0, 0) << endl;
+
+  seqManobras(memo, N, K, 0, 0); 
+
   return 0;
 }
