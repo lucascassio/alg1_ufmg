@@ -27,7 +27,7 @@ Cada caso de teste é composto por várias linhas:
 ### Saída
 
 
-O programa deve calcular e exibir a pontuação mais alta possível que Diná pode alcançar juntamente com a sequência de manobras usada nas seções da pista.
+O programa deve calcular e exibir a pontuação mais alta possível juntamente com a sequência de manobras usada nas seções da pista.
 
 
 ## Compilação e Execução
@@ -36,7 +36,11 @@ O programa deve calcular e exibir a pontuação mais alta possível que Diná po
 ### Compilação
 
 
-Para compilar o projeto, execute o comando `g++ -std=c++17 main.cpp -o radlandia` na pasta raiz do projeto. Isso irá gerar o binário `radlandia`.
+Para compilar o projeto, execute o comando `g++ -std=c++17 main.cpp -o tp3` na pasta raiz do projeto. Isso irá gerar o binário `tp3`.
+
+### Execução
+
+Basta executar o binário com `./tp3`
 
 
 
