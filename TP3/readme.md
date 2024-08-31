@@ -27,7 +27,7 @@ Cada caso de teste é composto por várias linhas:
 ### Saída
 
 
-O programa deve calcular e exibir a pontuação mais alta possível que Diná pode alcançar com uma sequência de manobras nas seções da pista.
+O programa deve calcular e exibir a pontuação mais alta possível que Diná pode alcançar juntamente com a sequência de manobras usada nas seções da pista.
 
 
 ## Compilação e Execução
