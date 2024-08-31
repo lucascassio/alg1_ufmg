@@ -1,4 +1,4 @@
-# Repositório de Algoritmos 1
+# Repositório da disciplina de Algoritmos 1
 
 Bem-vindo ao Repositório de Algoritmos 1! 
 
