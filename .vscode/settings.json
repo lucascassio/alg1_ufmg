@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    ".env.*": "dotenv",
-    ".prettierrc": "json",
-    "*.css": "css",
-    "iostream": "cpp",
-    "ostream": "cpp"
-  }
-}
