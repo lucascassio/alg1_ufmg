@@ -1,36 +1,3 @@
-Lucas Cassio Costa
-Belo Horizonte, Minas Gerais Celular: (31) 9 71637470
-Email: lccosta2604@gmail.com
-GitHub: https://github.com/nicolasvondolinger?tab=repositories LinkedIn: https://www.linkedin.com/in/nicolas-von-dolinger-5a7036207/
-
-
-Estudo programação desde o segundo semestre de 2022, com foco em desenvolvimento full-stack. Sou graduando em Sistemas de Informação pela UFMG e busco constantemente aprimorar meus conhecimentos na área da computação com projetos autônomos.
-
-Experiências
-Gerente de Produto
-iJunior
-Out 2023 - Atualmente
-Como Gerente de Produto, sou responsável pela gestão de todos os outros PO’s da empresa, ter conhecimento sobre o andamento de todos os projetos e fazer a cobrança de pagamentos dos projetos.
-
-Product Owner
-iJunior
-Jun 2023 - Atualmente
-Como Product Owner (PO) na iJunior sou responsável pela gestão de produtos, coordenando a equipe e garantindo a entrega ágil de projetos de desenvolvimento de sites, aplicativos e protótipos para diferentes empresas.
-
-Trainee
-iJunior
-Mar 2023 - Jun 2023
-Como trainee na iJunior, uma empresa júnior da UFMG especializada em desenvolvimento de software, fui treinado na área de produto. Meu objetivo era integrar a equipe responsável pela administração da metodologia SCRUM, visando agilizar a entrega de projetos, incluindo criação de sites, aplicativos e protótipos, para diversas empresas.
-
-Formação
-Graduação - Universidade Federal de Minas Gerais (UFMG) - Sistemas de Informação (2º período) | Agosto de 2022 até Dezembro de 2026 (previsto)
-
-
-Belo Horizonte, Janeiro de 2024
-
-
-
-
 # Manobras Radicais em Radlândia
 
 
