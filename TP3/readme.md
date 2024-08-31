@@ -1,7 +1,7 @@
 # Caminhamentos com Restrições
 
 
-Este projeto implementa um algoritmo para determinar a sequência de manobras ótimas. O objetivo é maximizar a pontuação radical com base no sistema de pontuação. Usaremos programação dinâmica para resolver esse problema, que possui complexidade exponencial se implementado de outra maneira.
+Este projeto implementa um algoritmo para determinar a sequência de manobras ótimas. O objetivo é maximizar a pontuação com base no sistema de pontuação. Usaremos programação dinâmica para resolver esse problema, que possui complexidade exponencial se implementado de outra maneira.
 
 
 ## Problema
